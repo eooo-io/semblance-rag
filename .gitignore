@@ -1,0 +1,89 @@
+# Webapp (Laravel & PHP)
+webapp/vendor/
+webapp/public/build/
+webapp/public/hot
+webapp/public/storage
+webapp/storage/*.key
+webapp/storage/app/public/*
+!/storage/app/public/.gitkeep
+webappHomestead.yaml
+webappHomestead.json
+webapp/.env
+webapp/.env.backup
+webapp/.env.*.backup
+webapp/.phpunit.result.cache
+webapp/bootstrap/cache/*
+!bootstrap/cache/.gitignore
+.env
+
+# Python
+# Byte-compiled / optimized / DLL files
+tools/python/__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+tools/python/venv/
+tools/python/env/
+tools/python/.venv/
+tools/python/.env/
+tools/python/virtualenv/
+tools/python/ENV/
+
+# Python package files
+*.egg
+*.egg-info/
+tools/python/dist/
+tools/python/build/
+tools/python/eggs/
+tools/python/parts/
+tools/python/sdist/
+tools/python/wheels/
+*.whl
+tools/python/Pipfile.lock
+
+# Python testing/coverage
+tools/python/.pytest_cache/
+tools/python/.coverage
+tools/python/coverage.xml
+*,cover
+tools/python/htmlcov/
+.tox/
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+.lerna
+/dist
+/build
+*.log
+*.tsbuildinfo
+
+# General
+# Logs
+logs
+*.log
+*.log.*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Dependency lock files (optional, uncomment if you don't want to commit these)
+# composer.lock
+# package-lock.json
+# yarn.lock
