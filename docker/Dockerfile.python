@@ -1,22 +1,28 @@
-FROM alpine:3.18
+# Use a slim Python base image
+FROM python:3.11-slim
 
-# Install Python and pip
-RUN apk add --no-cache python3 py3-pip
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
-# Set working directory
+# Create app directory
 WORKDIR /app
 
-# Copy requirements file
-COPY ./python/requirements.txt /app/
+# Install system dependencies (useful for pip wheels)
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
 
-# Install Python dependencies
+# Copy requirements and install
+COPY ../python /app
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy FastAPI application files
-COPY ./python /app
+# Copy app source
+COPY . .
 
-# Expose FastAPI port
+# Expose port for FastAPI
 EXPOSE 8000
 
-# Start FastAPI with Uvicorn
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Default command to run the API
+CMD ["python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

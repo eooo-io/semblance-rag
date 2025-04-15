@@ -1,0 +1,12 @@
+# FastAPI framework and dependencies
+fastapi==0.110.1
+uvicorn[standard]==0.29.0
+
+# Optional: for handling pydantic validation
+pydantic==2.7.0
+
+# Uncomment below if/when you add RAG-specific logic
+# weaviate-client==3.26.0          # If using Weaviate
+# sentence-transformers==2.2.2     # If using embedding models
+# openai==1.17.1                   # If calling OpenAI APIs
+# numpy==1.26.4                   # Useful for vector math
