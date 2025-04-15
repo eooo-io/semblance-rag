@@ -42,3 +42,11 @@ CREATE TABLE lyric_sections (
 --- albums: Links songs to albums (optional if your data doesn’t include albums).
 --- songs: Holds the full lyrics and core metadata for each song.
 --- lyric_sections: Breaks lyrics into smaller, labeled chunks (e.g., verse 1, chorus) for finer-grained retrieval in RAG.
+
+-- Index for full-text search on lyrics (optional for PostgreSQL querying)
+CREATE INDEX idx_lyrics ON songs USING GIN (to_tsvector('english', lyrics));
+
+-- Index for faster joins
+CREATE INDEX idx_song_artist ON songs (artist_id);
+CREATE INDEX idx_song_album ON songs (album_id);
+CREATE INDEX idx_lyric_section_song ON lyric_sections (song_id)
