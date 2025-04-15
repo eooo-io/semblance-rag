@@ -62,3 +62,35 @@ $$ LANGUAGE plpgsql;
 CREATE TRIGGER trg_conversation_turns_fts
 BEFORE INSERT OR UPDATE ON conversation_turns
 FOR EACH ROW EXECUTE FUNCTION update_conversation_fts();
+
+-- ===================================
+-- CONVERSATION CHUNKS TABLE
+-- ===================================
+
+CREATE TABLE conversation_chunks (
+  id SERIAL PRIMARY KEY,
+  conversation_turn_id INTEGER REFERENCES conversation_turns(id) ON DELETE CASCADE,
+  chunk_index INTEGER,
+  content TEXT,
+  embedding VECTOR(1536),
+  fts_chunk TSVECTOR,
+  metadata JSONB,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Indexes
+CREATE INDEX idx_conversation_chunks_turn_id ON conversation_chunks(conversation_turn_id);
+CREATE INDEX idx_conversation_chunks_chunk_index ON conversation_chunks(chunk_index);
+CREATE INDEX idx_conversation_chunks_fts ON conversation_chunks USING GIN(fts_chunk);
+
+-- FTS trigger
+CREATE FUNCTION update_conversation_chunk_fts() RETURNS trigger AS $$
+BEGIN
+  NEW.fts_chunk := to_tsvector('english', coalesce(NEW.content, ''));
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_conversation_chunk_fts
+BEFORE INSERT OR UPDATE ON conversation_chunks
+FOR EACH ROW EXECUTE FUNCTION update_conversation_chunk_fts();

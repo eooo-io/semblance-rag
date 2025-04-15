@@ -44,3 +44,36 @@ $$ LANGUAGE plpgsql;
 CREATE TRIGGER trg_lyrics_fts
 BEFORE INSERT OR UPDATE ON lyrics
 FOR EACH ROW EXECUTE FUNCTION update_lyrics_fts();
+
+
+-- ===================================
+-- LYRICS CHUNKS TABLE
+-- ===================================
+
+CREATE TABLE lyrics_chunks (
+  id SERIAL PRIMARY KEY,
+  lyrics_id INTEGER REFERENCES lyrics(id) ON DELETE CASCADE,
+  chunk_index INTEGER,
+  content TEXT,
+  embedding VECTOR(1536),
+  fts_chunk TSVECTOR,
+  metadata JSONB,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Indexes
+CREATE INDEX idx_lyrics_chunks_lyrics_id ON lyrics_chunks(lyrics_id);
+CREATE INDEX idx_lyrics_chunks_chunk_index ON lyrics_chunks(chunk_index);
+CREATE INDEX idx_lyrics_chunks_fts ON lyrics_chunks USING GIN(fts_chunk);
+
+-- FTS trigger
+CREATE FUNCTION update_lyrics_chunk_fts() RETURNS trigger AS $$
+BEGIN
+  NEW.fts_chunk := to_tsvector('english', coalesce(NEW.content, ''));
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_lyrics_chunk_fts
+BEFORE INSERT OR UPDATE ON lyrics_chunks
+FOR EACH ROW EXECUTE FUNCTION update_lyrics_chunk_fts();
