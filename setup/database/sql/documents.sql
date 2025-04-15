@@ -139,3 +139,4 @@ UNION
 SELECT id, 'paper'::document_type AS type, title, content, metadata, created_at FROM papers
 UNION
 SELECT id, 'article'::document_type AS type, title, content, metadata, created_at FROM articles;
+
