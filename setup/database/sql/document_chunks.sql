@@ -1,9 +1,9 @@
 CREATE TABLE document_chunks (
   id SERIAL PRIMARY KEY,
-  document_id INTEGER REFERENCES documents(id),
+  parent_type TEXT,               -- 'book', 'paper', 'article', etc.
+  parent_id INTEGER,              -- ID from the parent table
   chunk_index INTEGER,
   content TEXT,
-  embedding VECTOR(1536),  -- optional if stored locally
   metadata JSONB,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
