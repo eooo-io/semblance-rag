@@ -1,4 +1,4 @@
-# Semblance RAG
+# Semblance RAG/KAG
 
 [![Docker](https://img.shields.io/badge/Containerized-Docker-blue.svg)](https://www.docker.com/)
 [![License](https://img.shields.io/github/license/eooo-io/semblance-rag)](https://github.com/eooo-io/semblance-rag/blob/main/LICENSE)
