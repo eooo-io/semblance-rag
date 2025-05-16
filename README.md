@@ -1,9 +1,18 @@
 # Semblance RAG/KAG
 
-[![Docker](https://img.shields.io/badge/Containerized-Docker-blue.svg)](https://www.docker.com/)
-[![License](https://img.shields.io/github/license/eooo-io/semblance-rag)](https://github.com/eooo-io/semblance-rag/blob/main/LICENSE)
-[![GitHub last commit](https://img.shields.io/github/last-commit/eooo-io/semblance-rag)](https://github.com/eooo-io/semblance-rag)
-[![Open Issues](https://img.shields.io/github/issues/eooo-io/semblance-rag)](https://github.com/eooo-io/semblance-rag/issues)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
+![Docker Compose](https://img.shields.io/badge/Docker--Compose-1488C6?style=flat&logo=docker&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat&logo=redis&logoColor=white)
+![MinIO](https://img.shields.io/badge/MinIO-CF2A27?style=flat&logo=minio&logoColor=white)
+![Elasticsearch](https://img.shields.io/badge/Elasticsearch-005571?style=flat&logo=elasticsearch&logoColor=white)
+![Weaviate](https://img.shields.io/badge/Weaviate-FF5B5B?style=flat&logo=weaviate&logoColor=white)
+![Python venv](https://img.shields.io/badge/venv-%23000000.svg?style=flat&logo=python&logoColor=white)
+![Pip](https://img.shields.io/badge/Pip-3776AB?style=flat&logo=pypi&logoColor=white)
+![Open Source Love](https://img.shields.io/badge/Open--Source-%E2%9D%A4-red?style=flat)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 Semblance RAG is a modular Retrieval-Augmented Generation (RAG) platform designed to support knowledge indexing, semantic search, and language model augmentation workflows. It leverages containerized microservices to ensure a flexible and extensible architecture for AI-enabled applications.
 
