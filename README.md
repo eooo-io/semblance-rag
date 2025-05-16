@@ -1,5 +1,7 @@
 # Semblance RAG/KAG
 
+## 🚀 Tech Stack & Status Badges
+
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
 ![Docker Compose](https://img.shields.io/badge/Docker--Compose-1488C6?style=flat&logo=docker&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
@@ -9,10 +11,17 @@
 ![MinIO](https://img.shields.io/badge/MinIO-CF2A27?style=flat&logo=minio&logoColor=white)
 ![Elasticsearch](https://img.shields.io/badge/Elasticsearch-005571?style=flat&logo=elasticsearch&logoColor=white)
 ![Weaviate](https://img.shields.io/badge/Weaviate-FF5B5B?style=flat&logo=weaviate&logoColor=white)
+![Ollama](https://img.shields.io/badge/Ollama-111111?style=flat&logo=ollama&logoColor=white)
+![OpenWebUI](https://img.shields.io/badge/OpenWebUI-3B82F6?style=flat&logo=OpenWebUI&logoColor=white)
 ![Python venv](https://img.shields.io/badge/venv-%23000000.svg?style=flat&logo=python&logoColor=white)
 ![Pip](https://img.shields.io/badge/Pip-3776AB?style=flat&logo=pypi&logoColor=white)
 ![Open Source Love](https://img.shields.io/badge/Open--Source-%E2%9D%A4-red?style=flat)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
+---
+
+> ⚡ This repo is built for **local workstation** or **cloud-native** deployment. It includes everything you need to run a private RAG pipeline with Ollama + OpenWebUI for local model hosting. Secure, composable, and deliciously overengineered.
+
 
 Semblance RAG is a modular Retrieval-Augmented Generation (RAG) platform designed to support knowledge indexing, semantic search, and language model augmentation workflows. It leverages containerized microservices to ensure a flexible and extensible architecture for AI-enabled applications.
 
