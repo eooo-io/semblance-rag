@@ -1,0 +1,38 @@
+# Normalize text
+* text=auto
+
+# Code files — force correct language where needed
+*.py text eol=lf linguist-language=Python
+*.ts text eol=lf linguist-language=TypeScript
+*.js text eol=lf linguist-language=JavaScript
+*.html text eol=lf linguist-language=HTML
+*.css linguist-generated
+
+# Docs and config
+*.md linguist-documentation
+docs/** linguist-documentation
+
+# Ignore build/generated/vendor stuff for stats
+build/** linguist-generated
+dist/** linguist-generated
+public/** linguist-generated
+static/** linguist-generated
+node_modules/** linguist-vendored
+
+# Docker and infra
+Dockerfile text eol=lf
+*.env text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.tf text eol=lf
+*.hcl text eol=lf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.zip binary
+*.tar.gz binary
+*.tgz binary
